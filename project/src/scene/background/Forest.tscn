@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sprite/background/forest/parallax-forest-back-trees.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprite/background/forest/parallax-forest-front-trees.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprite/background/forest/parallax-forest-lights.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprite/background/forest/parallax-forest-middle-trees.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "light_glow"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer3/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ) ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -13,3 +33,35 @@ motion_mirroring = Vector2( 272, 0 )
 position = Vector2( 0, -85 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.25, 1 )
+motion_mirroring = Vector2( 272, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 0, -85 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.5, 1 )
+motion_mirroring = Vector2( 272, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 0, -85 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.75, 1 )
+motion_mirroring = Vector2( 272, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 0, -85 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "light_glow"
+anims/light_glow = SubResource( 1 )
