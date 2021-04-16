@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ) ]
 }
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Forest" type="CanvasLayer"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

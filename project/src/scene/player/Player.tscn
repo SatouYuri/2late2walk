@@ -21,4 +21,4 @@ shape = SubResource( 1 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
+[node name="Forest" parent="." instance=ExtResource( 2 )]
