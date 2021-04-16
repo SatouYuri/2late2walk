@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprite/background/forest/parallax-forest-back-trees.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprite/background/forest/parallax-forest-front-trees.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprite/background/forest/parallax-forest-lights.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprite/background/forest/parallax-forest-middle-trees.png" type="Texture" id=4]
+[ext_resource path="res://src/scene/background/Forest.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "light_glow"
@@ -23,13 +24,14 @@ tracks/0/keys = {
 }
 
 [node name="Forest" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 272, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer1"]
 position = Vector2( 0, -85 )
 texture = ExtResource( 1 )
 centered = false

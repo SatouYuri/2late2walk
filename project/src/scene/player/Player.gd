@@ -10,15 +10,13 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
+var t = 0
+var v = -15
+var g = 6
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_right"):
-		position.x += 1
-	if Input.is_action_pressed("ui_left"):
-		position.x -= 1
-	if Input.is_action_pressed("ui_up"):
-		position.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		position.y += 1
+	t += delta
+	
+	position.y += (v * t) + (g * (pow(t,2)/2))
 		
